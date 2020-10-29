@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/user/create}" th:object="${user}" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+
+            <th>username</th>
+            <th>password:</th>
+            <th>name:</th>
+            <th>address</th>
+            <th>phone number:</th>
+            <th>img link:</th>
+            <th>avatar:</th>
+
+        </tr>
+        <tr>
+            <td> <input type="text" th:field="*{username}"/></td>
+            <td><input type="text" th:field="*{password}"/></td>
+            <td><input type="text" th:field="*{name}"/></td>
+            <td><input type="text" th:field="*{address}"/></td>
+            <td><input type="number" th:field="*{phoneNumber}"/></td>
+            <td><input type="text" th:field="*{img}"/></td>
+            <td><input type="file" th:field="*{avatar}"/></td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="save"/>
+            </td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

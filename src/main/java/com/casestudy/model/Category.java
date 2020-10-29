@@ -1,12 +1,15 @@
 package com.casestudy.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
+@Data
 
+@Entity
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,8 +22,7 @@ public class Category {
     @Transient
     private  MultipartFile avatar;
 
-    @OneToMany
-    private List<Song> songs;
+
 
     public Category() {
     }
@@ -57,11 +59,5 @@ public class Category {
         this.avatar = avatar;
     }
 
-    public List<Song> getSongs() {
-        return songs;
-    }
 
-    public void setSongs(List<Song> songs) {
-        this.songs = songs;
-    }
 }

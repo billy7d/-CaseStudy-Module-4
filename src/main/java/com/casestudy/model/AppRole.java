@@ -1,12 +1,16 @@
 package com.casestudy.model;
 
-import org.springframework.security.core.GrantedAuthority;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+
 
 import javax.persistence.*;
 import java.util.List;
 
+@Data
+
 @Entity
-public class AppRole implements GrantedAuthority {
+public class AppRole {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,10 +22,6 @@ public class AppRole implements GrantedAuthority {
    private List<AppUser> users;
 
 
-    @Override
-    public String getAuthority() {
-        return this.name;
-    }
 
 
     public Long getId() {

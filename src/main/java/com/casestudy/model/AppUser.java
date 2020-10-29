@@ -1,10 +1,14 @@
 package com.casestudy.model;
 
 
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.util.List;
+
+@Data
 
 @Entity
 public class AppUser {
@@ -29,7 +33,7 @@ public class AppUser {
     private MultipartFile avatar;
 
     @OneToMany
-    private List<Song> song;
+    private List<Song> songs;
 
     @ManyToOne
     private AppRole appRole;
@@ -99,11 +103,11 @@ public class AppUser {
     }
 
     public List<Song> getSong() {
-        return song;
+        return songs;
     }
 
-    public void setSong(List<Song> song) {
-        this.song = song;
+    public void setSong(List<Song> songs) {
+        this.songs = songs;
     }
 
     public AppRole getAppRole() {
