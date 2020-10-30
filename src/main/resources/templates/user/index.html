@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<a th:href="@{/user/create}">Create User</a>
+<a th:href="@{/users/create}">Create User</a>
 
 <table border="1px" cellpadding="10px">
     <tr>
@@ -14,18 +14,16 @@
         <th>name:</th>
         <th>address</th>
         <th>phone number:</th>
-        <th>img link:</th>
         <th>avatar:</th>
-        <th>List song</th>
+<!--        <th>List song</th>-->
     </tr>
     <tr th:each="u: ${users}">
         <td th:text="${u.username}"></td>
+        <td th:text="${u.name}"></td>
         <td th:text="${u.address}"></td>
         <td th:text="${u.phoneNumber}"></td>
-        <td th:text="${u.img}"></td>
-        <td th:text="${u.avatar}"></td>
-        <td th:text="${u.songs}"></td>
-        <td th:text="${u.appRole}"></td>
+        <td> <img th:src="@{'/i/' + ${u.getImg()}}" width="100" height="100"/></td>
+<!--        <td th:text="${u.songs}"></td>-->
         <td><a th:href="@{'/users/edit/' + ${u.id}}">Edit</a></td>
         <td><a th:href="@{'/users/delete/' + ${u.id}}">Delete</a></td>
     </tr>

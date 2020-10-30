@@ -25,18 +25,29 @@ public class AppUser {
 
     private String address;
 
-    private int phoneNumber;
+    private String phoneNumber;
 
     private String img;
 
     @Transient
     private MultipartFile avatar;
 
-    @OneToMany
-    private List<Song> songs;
+//    @OneToMany
+//    private List<Song> songs;
+//
+    public AppUser() {
+    }
 
-    @ManyToOne
-    private AppRole appRole;
+    public AppUser(String username,String password, String name, String address, String phoneNumber) {
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+    }
+
+    //    @ManyToOne
+//    private AppRole appRole;
 
     public Long getId() {
         return id;
@@ -78,11 +89,11 @@ public class AppUser {
         this.address = address;
     }
 
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(int phoneNumber) {
+    public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
@@ -102,19 +113,19 @@ public class AppUser {
         this.avatar = avatar;
     }
 
-    public List<Song> getSong() {
-        return songs;
-    }
-
-    public void setSong(List<Song> songs) {
-        this.songs = songs;
-    }
-
-    public AppRole getAppRole() {
-        return appRole;
-    }
-
-    public void setAppRole(AppRole appRole) {
-        this.appRole = appRole;
-    }
+//    public List<Song> getSong() {
+//        return songs;
+//    }
+//
+//    public void setSong(List<Song> songs) {
+//        this.songs = songs;
+//    }
+//
+//    public AppRole getAppRole() {
+//        return appRole;
+//    }
+//
+//    public void setAppRole(AppRole appRole) {
+//        this.appRole = appRole;
+//    }
 }
