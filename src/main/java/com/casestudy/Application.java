@@ -15,14 +15,14 @@ public class Application extends WebMvcConfigurerAdapter {
         SpringApplication.run(Application.class, args);
     }
 
-    @Autowired
-    Environment environment;
-
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        String fileUpload = environment.getProperty("file_upload").toString();
-
-        registry.addResourceHandler("/i/**") //
-                .addResourceLocations("file:" + fileUpload);
-    }
+//    @Autowired
+//    Environment environment;
+//
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        String fileUpload = environment.getProperty("file_upload").toString();
+//
+//        registry.addResourceHandler("/i/**") //
+//                .addResourceLocations("file:" + fileUpload);
+//    }
 }

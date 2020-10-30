@@ -22,7 +22,7 @@
         <td th:text="${u.name}"></td>
         <td th:text="${u.address}"></td>
         <td th:text="${u.phoneNumber}"></td>
-        <td> <img th:src="@{'/i/' + ${u.getImg()}}" width="100" height="100"/></td>
+        <td> <img th:src="@{${u.getImg()}}" width="100" height="100"/></td>
 <!--        <td th:text="${u.songs}"></td>-->
         <td><a th:href="@{'/users/edit/' + ${u.id}}">Edit</a></td>
         <td><a th:href="@{'/users/delete/' + ${u.id}}">Delete</a></td>
