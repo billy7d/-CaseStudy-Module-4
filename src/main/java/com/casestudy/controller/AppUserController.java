@@ -24,8 +24,8 @@ import java.util.Optional;
 @RequestMapping("/users")
 public class AppUserController {
 
-    @Autowired
-    Environment environment;
+//    @Autowired
+//    Environment environment;
 
 
     @Qualifier("appUserServiceImpl")

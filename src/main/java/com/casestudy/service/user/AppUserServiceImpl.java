@@ -1,7 +1,7 @@
 package com.casestudy.service.user;
 
 import com.casestudy.model.AppUser;
-import com.casestudy.repository.user.IUserRepo;
+import com.casestudy.repository.user.UserRepo;
 import com.casestudy.service.IAppUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,28 +12,28 @@ import java.util.Optional;
 public class AppUserServiceImpl implements IAppUserService {
 
     @Autowired
-    IUserRepo iUserRepo;
+    UserRepo userRepo;
 
     @Override
     public Iterable<AppUser> findAll() {
-        Iterable<AppUser> appUsers = iUserRepo.findAll();
+        Iterable<AppUser> appUsers = userRepo.findAll();
         return appUsers;
     }
 
     @Override
     public AppUser save(AppUser appUser) {
-        iUserRepo.save(appUser);
+        userRepo.save(appUser);
         return appUser;
     }
 
     @Override
     public Optional<AppUser> findOne(Long id) {
-        Optional<AppUser> appUser = iUserRepo.findById(id);
+        Optional<AppUser> appUser = userRepo.findById(id);
         return appUser;
     }
 
     @Override
     public void remove(Long id) {
-        iUserRepo.deleteById(id);
+        userRepo.deleteById(id);
     }
 }

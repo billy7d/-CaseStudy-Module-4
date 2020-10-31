@@ -32,9 +32,9 @@ public class AppUser {
     @Transient
     private MultipartFile avatar;
 
-//    @OneToMany
-//    private List<Song> songs;
-//
+    @OneToMany(targetEntity = Song.class)
+    private List<Song> playlist;
+
     public AppUser() {
     }
 
@@ -113,14 +113,16 @@ public class AppUser {
         this.avatar = avatar;
     }
 
-//    public List<Song> getSong() {
-//        return songs;
-//    }
-//
-//    public void setSong(List<Song> songs) {
-//        this.songs = songs;
-//    }
-//
+    public List<Song> getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(List<Song> playlist) {
+        this.playlist = playlist;
+    }
+
+
+    //
 //    public AppRole getAppRole() {
 //        return appRole;
 //    }

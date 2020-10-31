@@ -95,4 +95,12 @@ public class Song {
     public void setCategory(Category category) {
         this.category = category;
     }
+
+
+    @Override
+    public String toString() {
+        return name + linkMp3;
+
+    }
 }
+//<audio controls="controls" src="http://res.cloudinary.com/dos9lacv4/video/upload/v1604135419/cvizoxwxltqrreilpjxc.mp3"></audio>

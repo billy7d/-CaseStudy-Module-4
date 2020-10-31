@@ -23,8 +23,8 @@
         <td th:text="${s.getDescription()}"></td>
         <td><audio controls="controls" th:src="@{${s.getLinkMp3()}}"></audio></td>
 
-        <td><a th:href="@{'/users/edit/' + ${s.getId()}}">Edit</a></td>
-        <td><a th:href="@{'/users/delete/' + ${s.getId()}}">Delete</a></td>
+        <td><a th:href="@{'/songs/edit/' + ${s.getId()}}">Edit</a></td>
+        <td><a th:href="@{'/songs/delete/' + ${s.getId()}}">Delete</a></td>
     </tr>
 
 </table>
