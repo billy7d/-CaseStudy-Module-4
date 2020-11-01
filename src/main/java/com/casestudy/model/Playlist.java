@@ -41,12 +41,7 @@ public class Playlist {
         return songPlaylist;
     }
 
-    public Song getPlaylistElement() {
-        for (Song song : songPlaylist) {
-            return song;
-        }
-        return null;
-    }
+
 
     public void setSongPlaylist(List<Song> songPlaylist) {
         this.songPlaylist = songPlaylist;
@@ -58,5 +53,12 @@ public class Playlist {
 
     public void setAppUser(AppUser appUser) {
         this.appUser = appUser;
+    }
+
+    public String getSongLinkMp3() {
+        for (Song song : songPlaylist) {
+            return song.getLinkMp3();
+        }
+        return null;
     }
 }

@@ -30,7 +30,12 @@ public class Song {
     private MultipartFile mp3;
 
     @ManyToOne
+    @JoinColumn(name = "category_id")
     private Category category;
+
+    @ManyToOne
+    @JoinColumn(name = "playlist_id")
+    private Playlist playlist;
 
     public Long getId() {
         return id;
@@ -96,11 +101,22 @@ public class Song {
         this.category = category;
     }
 
+    public Playlist getPlaylist() {
+        return playlist;
+    }
+
+    public void setPlaylist(Playlist playlist) {
+        this.playlist = playlist;
+    }
 
     @Override
     public String toString() {
-        return name + linkMp3;
-
+        return
+                "Song:" + name + '\'' +
+                ", Singer:" + singer + '\'' +
+                ", Producer:" + producer + '\'' +
+                ", Description:" + description + '\'' +
+                ", Category:" + category ;
     }
 }
 //<audio controls="controls" src="http://res.cloudinary.com/dos9lacv4/video/upload/v1604135419/cvizoxwxltqrreilpjxc.mp3"></audio>

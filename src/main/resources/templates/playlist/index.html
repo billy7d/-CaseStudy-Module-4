@@ -11,12 +11,14 @@
     <tr>
         <th>name</th>
         <th>songs:</th>
+        <th>mp3</th>
 
 
     </tr>
     <tr th:each="p: ${playlist}">
         <td th:text="${p.getName()}"></td>
-        <td th:text="${p.getSongPlaylist().toArray()}" ></td>
+        <td th:text="${p.getSongPlaylist()}" ></td>
+        <td><audio controls="controls" th:src="@{${p.getSongLinkMp3()}}"></audio></td>
 
 <!--        <td><audio controls="controls" th:src="@{${s.getLinkMp3()}}"></audio></td>-->
         <td><a th:href="@{'/playlists/edit/' + ${p.getId()}}">Edit</a></td>
