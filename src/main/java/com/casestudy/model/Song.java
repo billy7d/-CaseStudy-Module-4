@@ -6,6 +6,7 @@ import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Data
 
@@ -33,9 +34,8 @@ public class Song {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @ManyToOne
-    @JoinColumn(name = "playlist_id")
-    private Playlist playlist;
+    @ManyToMany(mappedBy = "songPlaylist")
+    private List<Playlist> songInPlaylist;
 
     public Long getId() {
         return id;
@@ -101,12 +101,19 @@ public class Song {
         this.category = category;
     }
 
-    public Playlist getPlaylist() {
-        return playlist;
+    public List<Playlist> getSongInPlaylist() {
+        return songInPlaylist;
     }
 
-    public void setPlaylist(Playlist playlist) {
-        this.playlist = playlist;
+    public void setSongInPlaylist(List<Playlist> songInPlaylist) {
+        this.songInPlaylist = songInPlaylist;
+    }
+
+    public String getPlaylistName(){
+        for (Playlist playlist:songInPlaylist){
+            return playlist.getName();
+        }
+        return null;
     }
 
     @Override

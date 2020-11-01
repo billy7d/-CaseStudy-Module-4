@@ -9,6 +9,7 @@
 
 <table border="1px" cellpadding="10px">
     <tr>
+        <th>playlist Name</th>
         <th>name</th>
         <th>singer:</th>
         <th>producer</th>
@@ -17,6 +18,7 @@
 
     </tr>
     <tr th:each="s: ${songs}">
+        <th th:text="${s.getPlaylistName()}"></th>
         <td th:text="${s.getName()}"></td>
         <td th:text="${s.getSinger()}"></td>
         <td th:text="${s.getProducer()}"></td>
