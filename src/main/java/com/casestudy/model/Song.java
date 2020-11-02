@@ -25,6 +25,11 @@ public class Song {
 
     private String description;
 
+    private String linkImg;
+
+    @Transient
+    private MultipartFile img;
+
     private String linkMp3;
 
     @Transient
@@ -107,6 +112,22 @@ public class Song {
 
     public void setSongInPlaylist(List<Playlist> songInPlaylist) {
         this.songInPlaylist = songInPlaylist;
+    }
+
+    public String getLinkImg() {
+        return linkImg;
+    }
+
+    public void setLinkImg(String linkImg) {
+        this.linkImg = linkImg;
+    }
+
+    public MultipartFile getImg() {
+        return img;
+    }
+
+    public void setImg(MultipartFile img) {
+        this.img = img;
     }
 
     public String getPlaylistName(){

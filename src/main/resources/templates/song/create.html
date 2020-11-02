@@ -14,13 +14,13 @@
             <th>producer</th>
             <th>description:</th>
             <th>media</th>
+            <th>avatar</th>
 
         </tr>
         <tr>
             <td>
                 <select th:field="*{songInPlaylist}">
                     <option  th:each="s: ${playlists}" th:value="${s.getId()}" th:text="${s.getName()}"></option>
-
                 </select>
             </td>
             <td><input type="text" th:field="*{name}"/></td>
@@ -28,7 +28,7 @@
             <td><input type="text" th:field="*{producer}"/></td>
             <td><input type="text" th:field="*{description}"/></td>
             <td><input type="file" th:field="*{mp3}"/></td>
-
+            <td><input type="file" th:field="*{img}"/></td>
         </tr>
         <tr>
             <td>

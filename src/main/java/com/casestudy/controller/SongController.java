@@ -65,6 +65,21 @@ public class SongController {
             e.printStackTrace();
             e.getMessage();
         }
+
+        MultipartFile imgMultipartFile = song.getImg();
+        try{
+            File imgFile = File.createTempFile("test", imgMultipartFile.getOriginalFilename()).toPath().toFile();
+            imgMultipartFile.transferTo(imgFile);
+
+            Map responseImg = cloudinary.uploader().upload(imgFile,  ObjectUtils.asMap("resource_type", "auto"));
+            JSONObject jsonObject = new JSONObject(responseImg);
+            String urlMp3 = jsonObject.getString("url");
+            song.setLinkImg(urlMp3);
+        } catch (IOException e) {
+            e.printStackTrace();
+            e.getMessage();
+        }
+
         songService.save(song);
         return "redirect:/songs";
     }
@@ -88,6 +103,20 @@ public class SongController {
             JSONObject jsonObject = new JSONObject(responseMp3);
             String urlMp3 = jsonObject.getString("url");
             song.setLinkMp3(urlMp3);
+        } catch (IOException e) {
+            e.printStackTrace();
+            e.getMessage();
+        }
+
+        MultipartFile imgMultipartFile = song.getImg();
+        try{
+            File imgFile = File.createTempFile("test", imgMultipartFile.getOriginalFilename()).toPath().toFile();
+            imgMultipartFile.transferTo(imgFile);
+
+            Map responseImg = cloudinary.uploader().upload(imgFile, ObjectUtils.asMap("resource_type", "auto"));
+            JSONObject jsonObject = new JSONObject(responseImg);
+            String urlMp3 = jsonObject.getString("url");
+            song.setLinkImg(urlMp3);
         } catch (IOException e) {
             e.printStackTrace();
             e.getMessage();
